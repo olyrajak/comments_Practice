@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Article</title>
+</head>
+<style>
+    .data {
+        background-color: rgb(44, 228, 203);
+        padding: 20px;
+        font-size: 20px;
+        line-height: 1.5em;
+    }
+    
+    h4 {
+        background-color: rgb(240, 198, 229);
+        padding: 5px;
+        font-size: 40px
+    }
+    
+    h1 {
+        background-color: rgb(32, 1, 24);
+        padding: 5px;
+        color: white;
+        font-size: 40px
+    }
+</style>
+<div class="container">
+    <div class="flex">
+        <a href="/article" class="btn btn-primary"> Article </a>
+        <a href="/article/new" class="btn btn-secondary">Add new Article</a>
+    </div>
+    <main class="single">
+        <h1>Article Details</h1>
+
+        <h4>
+            Title :
+            <%= article.title %>
+        </h4>
+        <p class="data">
+            Tag :
+            <%= article.tag %>
+                <br> Author:
+                <%= article.author %>
+                    <br> Likes :
+                    <!-- <a class="btn btn-outline-primary" href="/article/<%= article.id %>/decrement">-</a> -->
+                    <%= article.likes %>
+                        <!-- <a class="btn btn-outline-success" href="/article/<%= article.id %>/increment">+</a> -->
+                        <br>Description :
+                        <%= article.description %>
+                            <br>
+
+        </p>
+        <a href="/article/<%= article._id%>/edit">
+
+            <button class="btn btn-secondary">Edit</button>
+        </a>
+        <a href="/article/<%= article._id%>/delete">
+
+            <button class="btn btn-secondary">Delete</button>
+        </a>
+
+
+        </p>
+
+        <div>
+            <form action="/article/<%= article._id%>/comments" method="POST">
+                <div class="input__box">
+                    <span class="details">Comments</span>
+                    <textarea name="content" cols="10" rows="3">
+        
+                    </textarea>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Add Comments">
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+</html>

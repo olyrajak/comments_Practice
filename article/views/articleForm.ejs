@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article Form</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="flex">
+            <a href="/article" class="btn btn-primary"> List</a>
+            <a href="/article" class="btn btn-primary"> Back</a>
+        </div>
+        <div class="content">
+            <section>
+
+                <div class="container">
+                    <div class="title">Registration</div>
+                    <form action="/article" method="POST">
+                        <div class="user__details">
+                            <div class="input__box">
+                                <span class="details">Title</span>
+                                <input type="text" name="title" placeholder="Title">
+                            </div>
+                            <div class="input__box">
+                                <span class="details">Tags</span>
+                                <input type="text" name="tags" placeholder="Tags">
+                            </div>
+                            <div class="input__box">
+                                <span class="details">Author</span>
+                                <input type="text" name="author" placeholder="Author">
+                            </div>
+                            <div class="input__box">
+                                <span class="details">Likes</span>
+                                <input type="number" name="likes" placeholder="Likes">
+                            </div>
+                            <div class="input__box">
+                                <span class="details">Description</span>
+                                <textarea name="description" cols="10" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </section>
+
+        </div>
+</body>
+
+</html>

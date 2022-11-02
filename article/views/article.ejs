@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<style>
+    .data {
+        background-color: rgb(44, 228, 203);
+        padding: 20px;
+        font-size: 18px
+    }
+    
+    h2 {
+        background-color: rgb(240, 198, 229);
+        padding: 5px;
+        font-size: 40px
+    }
+</style>
+
+
+
+<div class="container">
+    <div class="flex">
+        <a href="/article" class="btn btn-primary"> Article </a>
+        <a href="/article/new" class="btn btn-secondary">Add new Article</a>
+    </div>
+    <main class="single">
+        <h1>Article Details</h1>
+
+
+
+        <% articles.forEach(article => { %>
+            <h4>
+                Title :
+                <%= article.title %>
+            </h4>
+            <div class="data">
+                <p class="data">
+                    Tag :
+                    <%= article.tag %>
+                        <br> Author:
+                        <%= article.author %>
+                            <br> Like :
+                            <%= article.likes %>
+                                <br>Description :
+                                <%= article.description %>
+                                    <br>
+
+                </p>
+            </div>
+
+            <a href="/article/<%= article._id%>">
+
+                <button class="btn btn-primary">Show</button>
+            </a>
+
+
+
+
+            <% }) %>
+    </main>
+</div>
+
+
+
+</html>

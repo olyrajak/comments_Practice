@@ -32,7 +32,12 @@ router.get("/:id", (req, res, next) => {
     article.findById(id, (err, article) => {
         console.log(err, article);
         if (err) return next(err);
-        res.render("singlearticle", { article: article });
+        Comment.find({ articleId: id }, (err, comment) => {
+            console.log(article, comment);
+            res.render("singlearticle", { article, comment });
+
+
+        })
 
     });
 });
@@ -49,7 +54,7 @@ router.get("/:id/delete", (req, res) => {
     var id = req.params.id;
     article.findByIdAndDelete(id, (err, nextarticle) => {
         if (err) return next(err);
-        res.render("/article/" + id)
+        res.redirect("/article/" + id)
 
     })
 });
@@ -77,18 +82,18 @@ router.post("/:id", (req, res) => {
     var id = req.params.id;
     article.findByIdAndUpdate(id, (err, nextarticle) => {
         if (err) return next(err);
-        res.render("/article/" + id)
+        res.redirect("/article/" + id)
     });
 
 });
 router.post("/:id/comments", (req, res, next) => {
     var id = req.params.id;
 
-    req.body.bookId = id;
+    req.body.articleId = id;
     Comment.create(req.body, (err, comment) => {
         console.log(err, comment);
         if (err) return next(err);
-        res.render("/article/" + id)
+        res.redirect("/article/" + id)
     })
 });
 

@@ -61,28 +61,10 @@
                         <!-- <a class="btn btn-outline-success" href="/article/<%= article.id %>/increment">+</a> -->
                         <br>Description :
                         <%= article.description %>
-                            <ul>
-                                <h6>Comments</h6>
 
-
-
-                                <% comment.forEach(singleComment => { %>
-                                    <li>
-                                        <%= singleComment.content %>
-                                    </li>
-                                    <br>
-                                    <% }) %>
-                            </ul>
 
         </p>
-        <a href="/article/<%= article._id%>/edit">
 
-            <button class="btn btn-secondary">Edit</button>
-        </a>
-        <a href="/article/<%= article._id%>/delete">
-
-            <button class="btn btn-secondary">Delete</button>
-        </a>
 
 
         </p>
@@ -99,6 +81,31 @@
                     <input type="submit" value="Add Comments">
                 </div>
             </form>
+            <p class="data">
+                <ul>
+                    <h6>Comments</h6>
+
+
+
+                    <% comment.forEach(singleComment => { %>
+                        <li>
+                            <%= singleComment.content %>
+                                <a href="/comments/<%= singleComment._id%>/edit">
+
+                                    <button class="btn btn-secondary">Edit</button>
+                                </a>
+                                <a href="/comments/<%= singleComment._id%>/delete">
+
+                                    <button class="btn btn-secondary">Delete</button>
+                                </a>
+                        </li>
+
+
+                        <br>
+                        <% }) %>
+                </ul>
+
+            </p>
         </div>
     </main>
 </div>

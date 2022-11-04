@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 
 var indexRouter = require("./routes/index");
 var articleRouter = require("./routes/articleRouter");
+var commentrouter = require("./routes/comment");
 
 mongoose.connect("mongodb://localhost/articles", {
     useNewUrlParser: true,
@@ -30,8 +31,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter)
-app.use("/article", articleRouter)
+app.use("/", indexRouter);
+app.use("/article", articleRouter);
+app.use("/comments", commentrouter);
 
 
 app.use((req, res, next) => {

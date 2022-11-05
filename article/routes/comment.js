@@ -12,6 +12,14 @@ router.get("/:id/edit", (req, res, next) => {
     })
 
 });
+router.get("/:id/delete", (req, res, next) => {
+    var id = req.params.id;
+    Comment.findByIdAndDelete(id, (err, updateComment) => {
+        res.redirect("/article/" + updateComment.articleId);
+
+    })
+
+});
 router.get("/:id", (req, res, next) => {
     var id = req.params.id;
     console.log(id);
@@ -22,13 +30,12 @@ router.get("/:id", (req, res, next) => {
     })
 
 });
-router.post("/:id", (req, res) => {
+router.post("/:id", (req, res, next) => {
     var id = req.params.id;
     console.log(id);
-    Comment.findByIdAndUpdate(id, (err, nextarticle) => {
-        console.log(nextarticle);
+    Comment.findByIdAndUpdate(id, req.body, (err, updateComment) => {
         if (err) return next(err);
-        res.redirect("/comments/" + id)
+        res.redirect("/article/" + updateComment.articleId);
     });
 
 });

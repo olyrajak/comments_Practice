@@ -106,6 +106,12 @@ a {
     border: 1px solid rgb(53, 97, 192);
 }
 
+.btn-danger {
+    background-color: rgb(221, 10, 10);
+    color: white;
+    border: 1px solid rgb(255, 8, 49);
+}
+
 .btn-secondary {
     background-color: rgb(197, 198, 255);
     color: rgb(0, 0, 0);

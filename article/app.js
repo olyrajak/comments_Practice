@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 
 var indexRouter = require("./routes/index");
-var articleRouter = require("./routes/articleRouter");
+var articleRouter = require("./routes/article");
 var commentrouter = require("./routes/comment");
 
 mongoose.connect("mongodb://localhost/articles", {
@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/article", articleRouter);
+app.use("/articles", articleRouter);
 app.use("/comments", commentrouter);
 
 
